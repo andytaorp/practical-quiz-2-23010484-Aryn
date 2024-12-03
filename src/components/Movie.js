@@ -1,8 +1,36 @@
 import React from "react";
 
-/**
- * TODO: implement the Movie component
- * A single movie item in the movie list, with a checkbox to mark it
- * watched, a text span for the title, and a delete button.
- */
-export default function Movie() {}
+
+export default function Movie({ movie, handleToggleWatched, handleDeleteMovie }) {
+    return (
+      <li>
+        <span style={{ textDecoration: movie.watched ? "line-through" : "none" }} >
+        <input
+          type="checkbox"
+          checked={movie.watched}
+          onChange={() => handleToggleWatched(movie.id)}
+        />
+        {movie.description} ({movie.title})
+        </span>
+        <button
+  onClick={() => {
+    if (window.confirm('Are you sure you want to delete said movie(s)?')) {
+        handleDeleteMovie(movie.id);
+    }
+  }}
+          style={{
+            marginLeft: "8px",
+            background: "transparent",
+            border: "none",
+            color: "black",
+            cursor: "pointer",
+            fontSize: "10px",
+          }}
+          aria-label="Delete movie"
+        >
+        <button type="submit">Delete</button>
+        </button>
+        
+      </li>
+    );
+  }
