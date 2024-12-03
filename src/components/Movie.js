@@ -18,18 +18,9 @@ export default function Movie({ movie, handleToggleWatched, handleDeleteMovie })
         handleDeleteMovie(movie.id);
     }
   }}
-          style={{
-            marginLeft: "8px",
-            background: "transparent",
-            border: "none",
-            color: "black",
-            cursor: "pointer",
-            fontSize: "10px",
-          }}
-          aria-label="Delete movie"
-        >
-        <button type="submit">Delete</button>
-        </button>
+  type = 'submit' >
+    Delete
+    </button>
         
       </li>
     );
